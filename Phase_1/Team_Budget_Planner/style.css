@@ -1,9 +1,15 @@
+
+/****main page *****/
 *{
     margin : 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: rgb(201, 221, 243);
 }
 .header {
     text-align: center;
-    font-family:'Courier New', Courier, monospace;
     color:#3b4d6d;
     word-spacing: 2.0px;
     border-bottom: 2px solid #000;
@@ -32,3 +38,113 @@
 .list li a:hover {
     color:#747c85;
 }
+
+/****program managers page ****/
+.budget {
+    width: 700px;
+	height: 400px;
+	background-color: #045faa;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+    padding: 50px;
+  
+}
+
+.budget-headline {
+    text-align: center;
+    margin-top: 70px;
+    border-bottom: rgb(21, 85, 148);
+    color: rgb(5, 73, 68);
+    text-decoration: underline;
+}
+
+.tag {
+    display:inline-block;
+    width: 200px;
+    padding: 15px;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.input-data {
+    width: 300px;
+    height: 35px;
+    border: 3px solid rgb(44, 34, 82);
+}
+
+.btn {
+    background-color:#045faa;
+    color: #FFF;
+    margin: 30px;
+    margin-left: 150px;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.btn-back {
+    margin-left: 0;
+   
+}
+
+.btn-back a {
+    color: #FFF;
+}
+
+
+/********* Annual Budger Plan *************/
+
+.container-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    position: relative;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+    
+  }
+
+.container-table td, #customers th {
+    border: 1px solid rgb(117, 100, 100);
+    padding: 10px;
+  }
+
+  .container-table tr:hover {
+      background-color: #ddd;
+    }
+
+  .container-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #045faa;
+  text-align: center;
+  color: white;
+  }
+
+  .header-budget {
+      margin-top: 70px;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+
+  .wrapper-btn{
+    position: relative;
+    margin-left: 210px;
+  }
+
+  .btn-fi-back {
+      border: none;
+      background-color: rgb(201, 221, 243);
+      font-size: 18px;
+      font-weight: 700;
+  }
+
