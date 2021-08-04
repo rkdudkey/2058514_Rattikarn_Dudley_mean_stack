@@ -46,16 +46,20 @@ function displayData() {
 
     var tableContent=""
     var startTable ="<table class=\"container-table\"><tr><th>Client Name</th><th>Project Name</th><th>Budget </th></tr>"
-    
+    var totalBudget = 0;
     dataJson.forEach(item => {
         tableContent += `<tr>
                         <td> ${item.client} </td>
                         <td> ${item.project} </td>
                         <td> ${item.budget} </td>
                         </tr>`
+        var str = item.budget.replace(/\D/g, "");
+        totalBudget += parseInt(str);
     });
     
     var endTable="</table>"
     tableContent = startTable+tableContent+endTable
     document.getElementById("main").innerHTML=tableContent;
+    document.getElementById("totalBudget").innerHTML = `Total cost: $${totalBudget.toLocaleString()}`
+    
 }
