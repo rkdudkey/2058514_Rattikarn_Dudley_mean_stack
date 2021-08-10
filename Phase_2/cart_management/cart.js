@@ -1,37 +1,42 @@
-//object data to interate and display the shopping cart 
 var items = [
     {
+        id: 1,
         name: "ZZ Plant",
         price: 55,
         img: "images/zz-plants.jpg"
     },
     {
+        id: 2,
         name: "Snake Plant Laurentii",
         price: 67,
         img: 'images/snake-plant.jpg'
     },
     {
+        id: 3,
         name: "Philodendron Green",
         price: 52,
         img: 'images/philodendron-plant.jpg'
     },
     {
+        id: 4,
         name: "Peperomia Obtusifolia",
         price: 37,
         img: 'images/Peperomia-plant.jpg'
     }
 ];
-//checkout array to display in checkout page
+
+
 var stockCart = [];
 var stockIndex = 0;
 var filterStock = [];
+
 function addCart() {
     //get the item from the localstorage if null get empty array 
-    var cart = JSON.parse(localStorage.getItem("cartItems") || "[]");
-    //push the data object 
+    var cart = JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    //push the items object in the array
     cart.push(items);
-    // Saving the data into localStorage
-    localStorage.setItem("cartItems", JSON.stringify(cart));
+    // Saving the data into session storage
+    sessionStorage.setItem("cartItems", JSON.stringify(cart));
 }
 function display() {
     // call add cart
@@ -66,12 +71,4 @@ function renderCheckout() {
     });
     // Saving the data into localStorage
     localStorage.setItem("checkoutCart", JSON.stringify(filterStock));
-}
-function displayCart() {
-    var checkoutItem = localStorage.getItem("checkoutCart");
-    var checkoutJson = JSON.parse(checkoutItem);
-    checkoutJson.forEach(function (stock) {
-        document.getElementById("displayCart").innerHTML =
-            "<table>\n        \n        <tr>\n            <th> Item Name </th> \n            <th> Price </th> \n        </tr>\n        <tr>\n            <td> " + stock.name + " </td>\n            <td> " + stock.price + " </td>\n        </tr>\n    </table>";
-    });
 }
