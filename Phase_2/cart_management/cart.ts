@@ -32,13 +32,13 @@ let filterStock = [];
 
 function addCart(): void {
     //get the item from the localstorage if null get empty array 
-    let cart = JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    let cart = JSON.parse(localStorage.getItem("cartItems") || "[]");
 
     //push the items object in the array
     cart.push(items);
 
     // Saving the data into session storage
-    sessionStorage.setItem("cartItems", JSON.stringify(cart));
+    localStorage.setItem("cartItems", JSON.stringify(cart));
 
 }
 
