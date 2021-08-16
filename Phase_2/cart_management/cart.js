@@ -12,7 +12,9 @@ let plants = [
     new Plant(1, "ZZ Plant", 55, "images/zz-plants.jpg", 0),
     new Plant(2, "Snake Plant Laurentii", 67, "images/snake-plant.jpg", 0),
     new Plant(3, "Philodendron Green", 52, "images/philodendron-plant.jpg", 0),
-    new Plant(4, "Peperomia Obtusifolia", 37, "images/Peperomia-plant.jpg", 0)
+    new Plant(4, "Peperomia Obtusifolia", 37, "images/Peperomia-plant.jpg", 0),
+    new Plant(5, "Golden Pothos", 14.95, "images/golden-pothos.jpg", 0),
+    new Plant(6, "Silver Satin Pothos Plants", 36.95, "images/silver-satin.jpg", 0)
 ];
 function addCart() {
     //get the item from the localstorage if null get empty array 
@@ -78,18 +80,13 @@ function addCartCheckOut(id) {
     let stockCart = JSON.parse(localStorage.getItem("checkoutCart") || "[]");
     let index = 0;
     //look for the right index to assign 
-    if (id === 1) {
-        index = 0;
+    for (let i = 1; i <= 6; i++) {
+        if (id === i) {
+            index = id - 1;
+            break;
+        }
     }
-    else if (id === 2) {
-        index = 1;
-    }
-    else if (id === 3) {
-        index = 2;
-    }
-    else if (id === 4) {
-        index = 3;
-    }
+    console.log(index);
     let isInCart = false;
     let cartIndex = 0;
     for (let i = 0; i < stockCart.length; i++) {

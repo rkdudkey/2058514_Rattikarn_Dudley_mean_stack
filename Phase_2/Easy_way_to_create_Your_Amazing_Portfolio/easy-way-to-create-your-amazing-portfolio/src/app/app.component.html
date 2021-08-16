@@ -1,0 +1,45 @@
+<div>
+    <h2>Login Form</h2>
+    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef)">
+        <label>Username</label>
+        <input type="text" name="userNameLogin" ngModel required minlength="2" /><br />
+        <label>Password</label>
+        <input type="password" name="passwordLogin" ngModel /><br />
+        <input type="submit" value="Login" [disabled]="!loginRef.valid" />
+    </form>
+    <a href="">Sign Up</a>
+</div>
+
+<div *ngIf="flagCheckUser" class="portfolio">
+    <h2>My Portfolio</h2>
+    <h4>Welcome <span >{{userName}}</span></h4>
+    <form #contact="ngForm" (ngSubmit)="addContact(contact)">
+        <label for="contactname">Contact Name</label>
+        <input type="text" name="contactName" ngModel required minlength="2" /> <br />
+        <label for="Phone Number"> Phone Number</label>
+        <input type="text" name="phoneNumber" ngModel required minlength="10" /> <br /> 
+        <input type="submit" value="Save" [disabled]="!contact.valid">
+
+    </form>
+</div>
+
+
+<div>
+    <h2>Registration Form</h2>
+    <div>
+        <form #regisRef="ngForm" (ngSubmit)="storeData(regisRef)">
+            <label>Firs tName</label>
+            <input type="text" name="firstName" ngModel required minlength="2" /><br />
+            <label>Last Name</label>
+            <input type="text" name="lastName" ngModel required /><br />
+            <label>User Name</label>
+            <input type="text" name="userName" ngModel required /><br />
+            <label>Password</label>
+            <input type="password" name="password" ngModel required /><br />
+            <input type="submit" value="submit" [disabled]="!regisRef.valid" />
+            <input type="reset" value="reset" click="resetRegister(regisRef)" />
+        </form>
+        <div class="displayRegister">
+            {{registertext}}
+        </div>
+    </div>

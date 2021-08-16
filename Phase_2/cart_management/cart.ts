@@ -19,7 +19,9 @@ let plants: Plant[] = [
     new Plant(1, "ZZ Plant", 55, "images/zz-plants.jpg", 0),
     new Plant(2, "Snake Plant Laurentii", 67, "images/snake-plant.jpg", 0),
     new Plant(3, "Philodendron Green", 52, "images/philodendron-plant.jpg", 0),
-    new Plant(4, "Peperomia Obtusifolia", 37, "images/Peperomia-plant.jpg", 0)
+    new Plant(4, "Peperomia Obtusifolia", 37, "images/Peperomia-plant.jpg", 0),
+    new Plant(5, "Golden Pothos", 14.95, "images/golden-pothos.jpg", 0),
+    new Plant(6, "Silver Satin Pothos Plants", 36.95, "images/silver-satin.jpg", 0)
 ];
 
 function addCart(): void {
@@ -103,15 +105,14 @@ function addCartCheckOut(id: number): void {
 
     let index: number = 0;
     //look for the right index to assign 
-    if (id === 1) {
-        index = 0;
-    } else if (id === 2) {
-        index = 1;
-    } else if (id === 3) {
-        index = 2;
-    } else if (id === 4) {
-        index = 3;
+    for (let i = 1 ; i <= 6; i++){
+        if(id === i){
+            index = id-1;
+            break;
+        }
     }
+
+    console.log(index);
 
     let isInCart: boolean = false;
     let cartIndex: number = 0;
