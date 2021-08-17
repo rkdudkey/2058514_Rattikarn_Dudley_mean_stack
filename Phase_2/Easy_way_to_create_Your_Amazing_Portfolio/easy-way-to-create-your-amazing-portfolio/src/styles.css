@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+
+.container-head{
+    width: 100%;
+    margin-top: 70px;
+    margin-left: 100px;
+}
+
+.lbl {
+    width: 100px;
+}
+
+.lbl-contact {
+    width: 200px;
+}
+
+table {
+    width: 500px;
+}
+
+table , th, td, tr {
+    border: 1px solid black;
+}

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 //use global array to access the whole application
 import { Record } from "./record.module";
-import { users } from './mock.records';
+import { Contact } from "./contact.module"
+import { users, contactInfo } from './mock.records';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -12,16 +13,34 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
 
   flagCheckUser: boolean = false;
+  flagSignup:boolean = false;
+  flagLogin:boolean = true;
+  
+  data:string = "start";
 
   loginText: string = "";
   registertext: string = "";
-  userName: any = "";
+  firstName: any = "";
 
   userInfo = users;
+  userContact: Array<Contact> = [];
 
   constructor() {
 
   }
+
+  toggle() {
+    if(this.data == "start") {
+      this.flagLogin = false;
+      this.flagSignup = true;
+      this.data = "signup";
+    } else if (this.data == "signup"){
+      this.flagSignup = false;
+      this.flagLogin = true;
+      this.data = "start";
+    }
+}
+
 
   storeData(regisRef: NgForm) {
     let register = regisRef.value;
@@ -34,7 +53,6 @@ export class AppComponent {
     };
 
     users.push(data);
-    console.log(users);
 
     this.registertext = "You have been registered";
   }
@@ -47,9 +65,27 @@ export class AppComponent {
       users.forEach(e => {
         if (e.userName == loginRef.value.userNameLogin && e.password == loginRef.value.passwordLogin) {
           //assign the first name of the user, pull from the find object 
-          this.userName = e.firstName;
+          this.firstName = e.firstName;
         }
+
+        this.flagLogin = false;
       });
+
+        let oldData: Contact;
+        //display save recorded
+        contactInfo.find(e => {
+          if (e.firstName === this.firstName) {
+            //copy old data
+            oldData = {
+              contactName: e.contactName,
+              phoneNumber: e.phoneNumber,
+              firstName: e.firstName
+            };
+            this.userContact.push(oldData);
+          }
+         
+        })
+       
     } else {
       this.loginText = "The username and password is not matching, please enter a correct data !"
     }
@@ -61,21 +97,20 @@ export class AppComponent {
     regisRef.reset();
   }
 
-  addContact(contactRef: NgForm) {
+  addContact(contactRef: NgForm): void {
+    let contact = contactRef.value;
 
-    //find index 
-    let index:number = 0;
-    
-    users.some((entry, i)  => {
-      if (entry.firstName == this.userName) {
-        index = i;
-      }
-    });
+    //add new data 
+    let newData: Contact = {
+      contactName: contact.contactName,
+      phoneNumber: contact.phoneNumber,
+      firstName: this.firstName
+    };
 
-    users[index].contactName = contactRef.value.contactName;
-    users[index].phoneNumber = contactRef.value.phoneNumber;
+    this.userContact.push(newData);
 
-    console.log(users);
+   contactRef.reset();
   }
 
+  
 }

@@ -3,6 +3,4 @@ export interface Record {
     lastName:string;
     userName:string;
     password:string;
-    contactName?:string;
-    phoneNumber?:string;
 }

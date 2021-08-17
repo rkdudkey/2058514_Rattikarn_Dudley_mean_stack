@@ -1,44 +1,65 @@
-<div>
+<div *ngIf="flagLogin" class="container-head">
     <h2>Login Form</h2>
     <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef)">
-        <label>Username</label>
+        <label class="lbl">Username</label>
         <input type="text" name="userNameLogin" ngModel required minlength="2" /><br />
-        <label>Password</label>
+        <label class="lbl">Password</label>
         <input type="password" name="passwordLogin" ngModel /><br />
         <input type="submit" value="Login" [disabled]="!loginRef.valid" />
     </form>
-    <a href="">Sign Up</a>
+    <div>
+        <span style="color: red">{{loginText}}</span>
+    </div>
+    <div>
+        <input type="button" value="Sign up" (click)="toggle()" />
+    </div>
+   
 </div>
 
-<div *ngIf="flagCheckUser" class="portfolio">
+
+<div *ngIf="flagCheckUser" class="container-head">
     <h2>My Portfolio</h2>
-    <h4>Welcome <span >{{userName}}</span></h4>
+    <h4>Welcome <span >{{firstName}}</span></h4>
     <form #contact="ngForm" (ngSubmit)="addContact(contact)">
-        <label for="contactname">Contact Name</label>
+        <label for="contactname" class="lbl-contact">Contact Name</label>
         <input type="text" name="contactName" ngModel required minlength="2" /> <br />
-        <label for="Phone Number"> Phone Number</label>
+        <label for="Phone Number " class="lbl-contact"> Phone Number</label>
         <input type="text" name="phoneNumber" ngModel required minlength="10" /> <br /> 
         <input type="submit" value="Save" [disabled]="!contact.valid">
-
     </form>
+    <br />
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone No</th>
+            </tr>
+            <tr *ngFor="let detail of userContact">   
+                    <td> {{detail.contactName}}</td>
+                    <td> {{detail.phoneNumber}}</td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 
-<div>
+<div *ngIf="flagSignup" class="container-head">
     <h2>Registration Form</h2>
     <div>
         <form #regisRef="ngForm" (ngSubmit)="storeData(regisRef)">
-            <label>Firs tName</label>
+            <label class="lbl">Firs tName</label>
             <input type="text" name="firstName" ngModel required minlength="2" /><br />
-            <label>Last Name</label>
+            <label class="lbl">Last Name</label>
             <input type="text" name="lastName" ngModel required /><br />
-            <label>User Name</label>
+            <label class="lbl">User Name</label>
             <input type="text" name="userName" ngModel required /><br />
-            <label>Password</label>
+            <label class="lbl">Password</label>
             <input type="password" name="password" ngModel required /><br />
             <input type="submit" value="submit" [disabled]="!regisRef.valid" />
-            <input type="reset" value="reset" click="resetRegister(regisRef)" />
+            <input type="reset" value="reset" (click)="resetRegister(regisRef)" />
         </form>
+        <input type="button" value="Login" (click)="toggle()" />
+        
         <div class="displayRegister">
             {{registertext}}
         </div>
