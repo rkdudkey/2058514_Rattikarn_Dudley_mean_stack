@@ -36,8 +36,13 @@ export class TodoTrackerComponent implements OnInit {
     };
    
     EMP_DATA.push(empData);
+    trackerRef.reset();
     this.table.renderRows();
     
+  }
+
+  resetData(trackerRef:NgForm){
+    trackerRef.reset();
   }
 
 }
