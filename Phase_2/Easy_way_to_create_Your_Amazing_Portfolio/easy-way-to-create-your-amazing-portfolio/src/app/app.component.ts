@@ -55,6 +55,7 @@ export class AppComponent {
     users.push(data);
 
     this.registertext = "You have been registered";
+    regisRef.reset();
   }
 
   checkUser(loginRef: NgForm) {
