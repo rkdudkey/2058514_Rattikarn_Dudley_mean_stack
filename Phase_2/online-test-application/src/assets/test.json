@@ -1,0 +1,102 @@
+[
+    {
+        "id": "1",
+        "question":"To use HttpClient component you need to import below module?",
+        "ans1":"HttpModule",
+        "ans2":"HttpClientModule",
+        "ans3": "Http",
+        "ans4": "None of the above",
+        "correct":"HttpClientModule",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "2",
+        "question":"Below construct provide modular structure to angular application ?",
+        "ans1":"Component",
+        "ans2":"NgModule",
+        "ans3": "Directives",
+        "ans4": "Pipes",
+        "correct":"NgModule",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "3",
+        "question":"Which decorator is used for declaring class as a Service ?",
+        "ans1":"@Service",
+        "ans2":"@Injectable",
+        "ans3": "@Provider",
+        "ans4": "@DI",
+        "correct":"@Injectable",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "4",
+        "question":"Below module is required for building reactive forms ?",
+        "ans1":"FormsModule",
+        "ans2":"ReactiveFormsModule",
+        "ans3": "DynamicFormsModule",
+        "ans4": "None of the above",
+        "correct": "ReactiveFormsModule",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "5",
+        "question":"Using below directive you can modify inner HTML of DOM element?",
+        "ans1":"Attribute directive",
+        "ans2":"Structural directive",
+        "ans3": "Both of the above",
+        "ans4": "None of the above",
+        "correct":"Structural directive",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "6",
+        "question":"To build application in production mode, use below command?",
+        "ans1":"ng build",
+        "ans2":"ng serve",
+        "ans3": "ng build — prod",
+        "ans4": "ng lint",
+        "correct": "ng build — prod",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "7",
+        "question":"Using below wild card we can define page not found route?",
+        "ans1":"*",
+        "ans2":"**",
+        "ans3": "404",
+        "ans4": "\"",
+        "correct": "**",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "8",
+        "question":"HTTP service's get/put/post/delete function returns?",
+        "ans1":"object of type \"any\"",
+        "ans2":"Observable",
+        "ans3": "Json data",
+        "ans4": "callback function",
+        "correct": "Observable",
+        "isTrue": "",
+        "enabled": "false"
+    },
+    {
+        "id": "9",
+        "question":"Observer sends data to multiple clients via below method?",
+        "ans1":"send()",
+        "ans2":"next()",
+        "ans3": "emit()",
+        "ans4": "publish()",
+        "correct": "next()",
+        "isTrue": "",
+        "enabled": "false"
+    }
+    
+]
