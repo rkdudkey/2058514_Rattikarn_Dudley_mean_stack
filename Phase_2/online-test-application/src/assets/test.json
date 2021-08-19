@@ -97,6 +97,17 @@
         "correct": "next()",
         "isTrue": "",
         "enabled": "false"
+    },
+    {
+        "id": "10",
+        "question":"In Angular, you can hide/remove HTML element using?",
+        "ans1":"#ngIf",
+        "ans2":"*ngIf",
+        "ans3": "#hide",
+        "ans4": "*hide",
+        "correct": "*ngIf",
+        "isTrue": "",
+        "enabled": "false"
     }
     
 ]

@@ -1,0 +1,15 @@
+.container {
+    max-width: 100%;
+    margin: 100px 70px;
+    
+}
+
+.reset {
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+
+.result {
+    padding-bottom: 20px;
+}
+
