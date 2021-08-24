@@ -14,6 +14,7 @@ function addRecord() {
     //get current data and time 
     debugger;
     let now = new Date();
+    
     let current = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
 
     recordArray = {
@@ -25,18 +26,25 @@ function addRecord() {
     }
     debugger;
 
-    let logs = JSON.parse(fs.readFileSync("log.json").toString());
-    logs.push(recordArray);
-    fs.writeFileSync("log.json",JSON.stringify(logs));
-    console.log("New storead store")
-    debugger;
-        
+    try {
+        let logs = JSON.parse(fs.readFileSync("log.json").toString());
+        logs.push(recordArray);
+        fs.writeFileSync("log.json", JSON.stringify(logs));
+        console.log("New storead store")
+        debugger;
+    } catch (e) {
+        let arrayTemp = [];
+        arrayTemp.push(recordArray);
+        debugger;
+        fs.writeFileSync("log.json", JSON.stringify(arrayTemp));
+    }
+
 }
-let exit = 0 ;
-while (exit != 4){
+let exit = 0;
+while (exit != 4) {
     addRecord();
     debugger;
-    exit= readLine.questionInt("Enter any number to continue , Press 4 to exit");
+    exit = readLine.questionInt("Enter any number to continue , Press 4 to exit : ");
 }
 
 
