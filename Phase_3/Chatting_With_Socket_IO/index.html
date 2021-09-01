@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Socket.IO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- connecting library file part of node_module folder -->
+    <script src="http://localhost:9090/socket.io/socket.io.js"> </script>
+    <script type="text/JavaScript">
+
+        var socket = io("http://localhost:9090",  { transports : ['websocket'] });
+
+        function sendData(){
+            let div = document.getElementById("display");
+            let name = document.getElementById("name").value;
+            let text = document.getElementById("text").value;
+            let timestamp = new Date();
+            let date = timestamp.toLocaleString();
+               
+            //display to client side
+            div.innerHTML += `${date}: ${name}: ${text} <br/>`;
+
+            //send to server
+            socket.emit("obj", `${date}: ${name}: ${text}`);
+            document.getElementById("name").value = "";
+            document.getElementById("text").value ="";
+        }
+
+           //response from the server
+         
+            socket.on("obj1", msg => {
+                setTimeout(() => {
+                let div = document.getElementById("display");
+
+                div.innerHTML += msg;
+                }, 1000);
+                
+            })
+          
+           
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row " style="height: 95vh;">
+            <div class="col-6 border border-primary">
+                <h2 class="mt-5">Chatting with socket IO</h2>
+                <label class="">Name</label>
+                <input type="text" class="form-control" id="name" name="name"> <br />
+                <label>Message</label>
+                <textarea id="text" class="form-control" name="msg" rows="4" cols="50"> </textarea> <br/>
+                <input type="button" class="btn btn-info" id="submit-id" value="send" onclick="sendData()">
+            </div>
+            <div class="col-6 border border-primary" >
+                <ul class="mt-5" id="display"></ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
