@@ -64,4 +64,5 @@ let deleteCouse = (req, res) => {
     })
 
 }
+
 module.exports = {addCourse, updateCourse, fetchCourse, deleteCouse};
