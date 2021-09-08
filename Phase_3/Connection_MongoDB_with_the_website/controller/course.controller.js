@@ -9,6 +9,7 @@ let addCourse = (req, res) => {
             res.send(err);
         }
     })
+    
 }
 
 let updateCourse = (req, res) => {
@@ -21,6 +22,7 @@ let updateCourse = (req, res) => {
             res.send(err);
         }
     })
+    
 }
 
 let fetchCourse = (req, res) => {
@@ -50,6 +52,7 @@ let fetchCourse = (req, res) => {
              res.json(err);   
         }
     })
+    
 }
 
 let deleteCouse = (req, res) => {
@@ -62,6 +65,7 @@ let deleteCouse = (req, res) => {
             res.send(err);
         }
     })
+    
 
 }
 
